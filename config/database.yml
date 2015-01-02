@@ -1,0 +1,20 @@
+common: &common
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  host: localhost
+  username: root
+  password: RathanakPassword
+
+development:
+  <<: *common
+  database: KhmerE_Commerce_development
+test:
+  <<: *common
+  database: KhmerE_Commerce_test
+production:
+  <<: *common
+  database: KhmerE_Commerce_production
+  username: KhmerE_Commerce
+  password: <%= ENV['KHMERE_COMMERCE_DATABASE_PASSWORD'] %>
